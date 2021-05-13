@@ -1,0 +1,15 @@
+query GetNewsData($page: Int = 1, $search: String) {
+    topHeadlines(options: {country: "ru", page: $page, q: $search}){
+        totalResults
+        articles {
+            source {
+                name
+            }
+            title
+            description
+            publishedAt
+            url
+            image: urlToImage
+        }
+    }
+}
